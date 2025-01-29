@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riyadh Metro Admin</title>
+  <style>
+    /* Screen */
+    .screen {
+      background-color: #ffffff;
+      font-family: "Inter", sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background-color: #1f2937;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .header .icon {
+      color: #ffffff;
+      font-size: 21px;
+      margin-right: 16px;
+    }
+
+    .header .text {
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32px;
+    }
+
+    /* Main Content */
+    .main-content {
+      padding: 24px;
+      text-align: left;
+    }
+
+    .main-content .title {
+      color: #1f2937;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32px;
+      margin-bottom: 32px;
+    }
+
+    /* Cards */
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .card {
+      width: 330px;
+      background-color: #ffffff;
+      border-radius: 2px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 16px;
+      text-align: center;
+    }
+
+    .card .text {
+      margin-bottom: 16px;
+    }
+
+    .card .text.title {
+      color: #2563eb;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 28px;
+    }
+
+    .card .text.description {
+      color: #4b5563;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .card .image {
+      width: 100%;
+      height: 200px;
+      border-radius: 4px;
+      background-image: url('./images');
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin: 16px 0;
+    }
+
+    .card .button {
+      cursor: pointer;
+      width: 100%;
+      height: 40px;
+      padding: 0 8px;
+      border: 0;
+      box-sizing: border-box;
+      border-radius: 4px;
+      background-color: #2563eb;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+      outline: none;
+    }
+    .footer {
+      background-color: #1f2937;
+      color: #94a3b8;
+      text-align: left;
+      padding: 0 24px;
+      margin-left: 20px;
+    }
+
+    .footer p {
+      margin: 5px;
+      font-size: 14px;
+    }
+
+    .footer a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body class="screen">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="icon">🚉</div>
+    <div class="text">Riyadh Metro Admin</div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="title">Welcome to the Riyadh Metro Admin Dashboard</div>
+    <p>Manage and oversee metro operations efficiently and effectively.</p>
+
+    <!-- Cards Section -->
+    <div class="cards">
+
+      <!-- Card 1 -->
+      <div class="card">
+        <div class="text title">Manage Train Schedule</div>
+        <div class="text description">Oversee and adjust train schedules to ensure optimal service and efficiency.</div>
+        <div class="image"><img src="images\Image.png"></div>
+        <button id="GoToTrainSchedule" class="button">Go to Train Schedule</button>
+
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <div class="text title">Manage Reports</div>
+        <div class="text description">Access and analyze detailed reports on metro operations and performance metrics.</div>
+        <div class="image"><img src="images/image2.png"></div>
+        <button id="GoToReports" class="button">Go to Reports</button>
+
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <div class="text title">Incident Management</div>
+        <div class="text description">Effectively manage and respond to incidents to maintain service reliability and safety.</div>
+        <div class="image"><img src="images\image3.png"></div>
+        <button id="GoToIncidentManagement"class="button">Go to Incident Management</button>
+      </div>
+
+    </div>
+  </div>
+   <!-- Footer -->
+   <footer class="footer">
+    <p>Contact Us</p>
+    <p>123213, City, Riyadh</p>
+    <p>Email: <a href="mailto:support@ticketplanner.com">support@ticketplanner.com</a></p>
+    <p>Phone: +966 456 7890</p>
+  </footer>
+  <script src="Script.js"></script>
+</body>
+</html>

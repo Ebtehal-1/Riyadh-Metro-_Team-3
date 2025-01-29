@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Train Schedules</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Roboto", sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header .logo img {
+      width: 30px;
+      height: 30px;
+    }
+
+    header .logo span {
+      font-size: 18px;
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    header .button {
+      background-color: #2563eb;
+      color: #ffffff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .content {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .sidebar {
+      background-color: #f3f4f6;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar button {
+      background-color: #ffffff;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #e5e7eb;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .main {
+      flex: 1;
+      background-color: #ffffff;
+      border-radius: 4px;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .main h2 {
+      margin-top: 0;
+      color: #1f2937;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    table th, table td {
+      text-align: left;
+      padding: 10px;
+      border: 1px solid #e5e7eb;
+    }
+
+    table th {
+      background-color: #f3f4f6;
+      color: #4b5563;
+    }
+    form {
+  display: flex;
+  flex-wrap: wrap; /* للسماح بانتقال العناصر إذا ضاق العرض */
+  gap: 20px; /* المسافة بين الحقول */
+}
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    .form-group label {
+      display: flex;
+      margin-bottom: 5px;
+      color: #4b5563;
+      flex-direction: column;
+      min-width: 200px;
+    }
+
+    .form-group input, .form-group select {
+      width: 90%;
+      padding: 8px;
+      border: 1px solid #d1d5db;
+      border-radius: 4px;
+    }
+
+    .form-actions {
+      text-align: right;
+    }
+
+    .form-actions button {
+      background-color: #2563eb;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #1f2937;
+      color: #ffffff;
+      text-align: left;
+      padding: 20px;
+    }
+
+    footer p {
+      margin: 0;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="images\Train.jpg" alt="Metro Logo">
+      <span>Riyadh Metro</span>
+    </div>
+    <button id="HomePage"class="button">Home Page</button>
+  </header>
+  <div class="content">
+    <aside class="sidebar">
+      <!-- <button>Maintenance Schedule</button> -->
+      <button id="GoToMaintenance"class="button">Maintenance Schedule</button>
+    </aside>
+    <main class="main">
+      <h2>Current Train Schedules</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Line</th>
+            <th>Departure</th>
+            <th>Arrival</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Red Line</td>
+            <td>08:00 AM</td>
+            <td>09:30 AM</td>
+            <td style="color: green;">On Time</td>
+            <td><button>Delete</button></td>
+          </tr>
+          <tr>
+            <td>Blue Line</td>
+            <td>08:30 AM</td>
+            <td>10:00 AM</td>
+            <td style="color: red;">Delayed</td>
+            <td><button>Delete</button></td>
+          </tr>
+          <tr>
+            <td>Green Line</td>
+            <td>09:00 AM</td>
+            <td>10:30 AM</td>
+            <td style="color: green;">On Time</td>
+            <td><button>Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Add/Edit Schedule</h2>
+      <form>
+        <div class="form-group">
+          <label for="line">Select Line</label> 
+          <select id="line">
+            <option>Red Line</option>
+            <option>Blue Line</option>
+            <option>Green Line</option>
+            <option>Purple Line</option>
+            <option>Yellow Line</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="departure">Departure Time</label>
+          <input type="time" id="departure">
+        </div>
+        <div class="form-group"> 
+          <label for="arrival">Arrival Time</label>
+          <input type="time" id="arrival">
+        </div>
+        <div class="form-group"> 
+          <label for="status">Status</label>
+          <select id="status">
+            <option>On Time</option>
+            <option>Delayed</option>
+          </select>
+        </div> 
+        <div class="form-actions">
+          <button type="submit">Save Schedule</button>
+        </div>
+      </form>
+    </main>
+  </div>
+  <script src="Script.js"></script>
+  <footer>
+    <p>Contact Us</p>
+    <p>123213, City, Riyadh</p>
+    <p>Email: support@ticketplanner.com</p>
+    <p>Phone: +966 456 7890</p>
+  </footer>
+</body>
+</html>
+
+
+

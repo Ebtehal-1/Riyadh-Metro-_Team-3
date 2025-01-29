@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riyadh Metro Reports</title>
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+      background-color: #f3f4f6;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      width: 100%;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .header .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .header .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .header .logo span {
+      font-size: 20px;
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    .header .button {
+      background-color: #2563eb;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .sidebar {
+      width: 20%;
+      background-color: #ffffff;
+      height: calc(100vh - 68px);
+      box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .sidebar button {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 10px;
+      border: none;
+      background-color: #f3f4f6;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .content {
+      width: 80%;
+      padding: 20px;
+    }
+
+    .search-bar {
+      margin-bottom: 20px;
+    }
+
+    .search-bar input {
+      width: 50%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .table-container {
+      background-color: #ffffff;
+      box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .table-container table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .table-container th, .table-container td {
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+      vertical-align: middle;
+      border-right: 2px solid #ddd; /* الخط الرأسي بين الأعمدة */
+    }
+
+    .table-container th:last-child, .table-container td:last-child {
+      border-right: none; /* إزالة الخط الرأسي في العمود الأخير */
+    }
+
+    .table-container th {
+      background-color: white;
+      color: black;
+      font-weight: bold;
+      border-top: 2px solid #ddd; /* إضافة خط أعلى */
+      border-bottom: 2px solid #ddd; /* إضافة خط أسفل */
+    }
+
+    .table-container th span {
+      background-color: #ffeeaa;
+      color: black;
+      padding: 5px 10px;
+      border-radius: 50%;
+      display: inline-block;
+      text-align: center;
+      margin-right: 10px;
+      position: relative;
+      line-height: 20px; /* Adjusted for better alignment */
+    }
+
+    .table-container th span::after {
+      content: '↓';
+      position: absolute;
+      top: 50%;
+      right: 5px;
+      transform: translateY(-50%);
+      font-size: 18px;
+      color: black;
+      font-weight: bold;
+    }
+
+    .action-buttons button {
+      margin-right: 5px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .view-btn {
+      background-color: #c8edfd;
+      color: black;
+    }
+
+    .delete-btn {
+      background-color: #dc2626;
+      color: white;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #1f2937;
+      color: #94a3b8;
+      text-align: left;
+      padding: 20px;
+      margin-left: 20px;
+    }
+
+    .footer p {
+      margin: 5px;
+      font-size: 14px;
+    }
+
+    .footer a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      <img src="images\Train.jpg" alt="">
+      <span>Riyadh Metro</span>
+    </div>
+    <button id="HomePage" class="button">Home Page</button>
+  </div>
+  <div class="container">
+    <div class="sidebar">
+      <button>Manage reports</button>
+    </div>
+    <div class="content">
+      <div class="search-bar">
+        <input type="text" placeholder="Search reports...">
+      </div>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th><span>Report Name</span></th>
+              <th><span>Generated Date</span></th>
+              <th><span>Report Type</span></th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Train Delay Complaint</td>
+              <td>12-1-2024</td>
+              <td>Complaint</td>
+              <td class="action-buttons">
+                <button id="bottun1" class="view-btn">View</button>
+                <button class="delete-btn">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Lost Luggage Report</td>
+              <td>3-3-2024</td>
+              <td>Lost and Found</td>
+              <td class="action-buttons">
+                <button id="bottun2" class="view-btn">View</button>
+                <button class="delete-btn">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Air Conditioning Issue</td>
+              <td>5-3-2024</td>
+              <td>Complaint</td>
+              <td class="action-buttons">
+                <button id="bottun3" class="view-btn">View</button>
+                <button class="delete-btn">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Service Improvement Suggestion</td>
+              <td>6-4-2024</td>
+              <td>Suggestion</td>
+              <td class="action-buttons">
+                <button id="bottun4" class="view-btn">View</button>
+                <button class="delete-btn">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Contact Us</p>
+    <p>123213, City, Riyadh</p>
+    <p>Email: <a href="mailto:support@ticketplanner.com">support@ticketplanner.com</a></p>
+    <p>Phone: +966 456 7890</p>
+  </footer>
+  <script src="Script.js"></script>
+</body>
+</html>

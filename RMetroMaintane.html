@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maintenance Train Schedules</title>
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+      background-color: #f3f4f6;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      background-color: #ffffff;
+      height: 68px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .header .text {
+      font-size: 20px;
+      font-weight: bold;
+      color: #000;
+    }
+
+    .header .button {
+      background-color: #2563eb;
+      color: #ffffff;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
+      background-color: #f9fafb;
+      height: calc(100vh - 68px);
+      padding: 20px;
+      position: fixed;
+      top: 68px;
+      left: 0;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar .button {
+      width: 100%;
+      background-color: #ffffff;
+      color: #000000;
+      padding: 14px;
+      text-align: center;
+      border: none;
+      border-radius: 4px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left: 260px;
+      padding: 20px;
+      flex: 1;
+    }
+
+    .main-content .card {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 4px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .main-content .card h2 {
+      font-size: 24px;
+      color: #1f2937;
+      margin-bottom: 10px;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .table th,
+    .table td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #e5e7eb;
+      font-size: 16px;
+    }
+
+    .table th {
+      background-color: #f9fafb;
+      font-weight: bold;
+      color: #4b5563;
+    }
+
+    .status.done {
+      color: #22c55e;
+      font-weight: bold;
+    }
+
+    .status.in-process {
+      color: #dc2626;
+      font-weight: bold;
+    }
+
+    .form-group {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      font-size: 16px;
+      color: #4b5563;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #d1d5db;
+      border-radius: 4px;
+      font-size: 16px;
+      background-color: #ffffff;
+    }
+
+    .save-button {
+      background-color: #2563eb;
+      color: #ffffff;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .save-button:hover {
+      background-color: #1e40af;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #1f2937;
+      color: #ffffff;
+      padding: 20px;
+      text-align: left;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .footer p {
+      margin: 0;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+ <div class="header">
+  <div class="logo">
+    <img src="images\Train.jpg" alt="" class="metro-logo"> 
+    <span>Riyadh Metro</span>
+  </div>
+  <button id="HomePage" class="button">Home Page</button>
+</div>
+
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <button id="GoToTrainSchedule" class="button">Go to Current Train Schedule</button>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Maintenance Train Schedules -->
+    <div class="card">
+      <h2>Maintenance Train Schedules</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Line</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+            <th>Team</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Red Line</td>
+            <td>08:00 AM</td>
+            <td>09:30 AM</td>
+            <td class="status done">Done</td>
+            <td>Team 1</td>
+            <td><button class="button">Delete</button></td>
+          </tr>
+          <tr>
+            <td>Blue Line</td>
+            <td>08:30 AM</td>
+            <td>10:00 AM</td>
+            <td class="status in-process">In Process</td>
+            <td>Team 2</td>
+            <td><button class="button">Delete</button></td>
+          </tr>
+          <tr>
+            <td>Green Line</td>
+            <td>09:00 AM</td>
+            <td>10:30 AM</td>
+            <td class="status done">Done</td>
+            <td>Team 3</td>
+            <td><button class="button">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Add/Edit Schedule -->
+    <div class="card">
+      <h2>Add/Edit Schedule</h2>
+      <form>
+        <div class="form-group">
+          <div>
+            <label for="select-line">Select Line</label>
+            <select id="select-line">
+              <option>Red Line</option>
+              <option>Blue Line</option>
+              <option>Green Line</option>
+              <option>Purple Line</option>
+              <option>Yellow Line</option>
+            </select>
+          </div>
+          <div>
+            <label for="start-date">Start Date</label>
+            <input type="text" id="start-date" placeholder="11/12/2025">
+          </div>
+          <div>
+            <label for="status">Status</label>
+            <select id="status">
+              <option>Done</option>
+              <option>In Process</option>
+            </select>
+          </div>
+          <div>
+            <label for="team">Team</label>
+            <select id="team">
+              <option>Team 1</option>
+              <option>Team 2</option>
+              <option>Team 3</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <div>
+            <label for="end-date">End Date</label>
+            <input type="text" id="end-date" placeholder="12/12/2025">
+          </div>
+        </div>
+        <button type="submit" class="save-button">Save Schedule</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>Contact Us</p>
+    <p>123213, City, Riyadh</p>
+    <p>Email: support@ticketplanner.com</p>
+    <p>Phone: +966 456 7890</p>
+  </div>
+  <script src="Script.js"></script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Incident Management</title>
+  <style>
+    body {
+      font-family: "Mulish", sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* لضمان تغطية الشاشة بالكامل */
+      background-color: #ffffff;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #ffffff;
+      border-bottom: 2px solid #2563eb;
+      height: 72px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .header .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header .logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .header .logo span {
+      font-size: 20px;
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    .header .button {
+      background-color: #2563eb;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      font-size: 16px;
+      font-family: "Mulish", sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
+      height: 100vh;
+      background-color: #f9fafb;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      position: fixed;
+      top: 72px;
+      left: 0;
+    }
+
+    .sidebar .text {
+      font-size: 20px;
+      font-weight: 700;
+      color: #2563eb;
+      margin-bottom: 20px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 10px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #4b5563;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left: 260px;
+      padding: 20px;
+      flex-grow: 1; /* يتيح تمدد المحتوى */
+    }
+
+    .main-content .text {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 20px;
+    }
+
+    .main-content .search-bar {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .main-content .search-bar input {
+      width: 200px;
+      height: 40px;
+      padding: 0 10px;
+      border-radius: 4px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      outline: none;
+    }
+
+    .card-container {
+      display: flex;
+      gap: 20px;
+    }
+
+    .card {
+      width: 300px;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 4px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card .text {
+      font-size: 18px;
+      font-weight: 600;
+      color: #000000;
+      margin-bottom: 10px;
+    }
+
+    .card .description {
+      font-size: 16px;
+      color: #4b5563;
+      margin-bottom: 10px;
+    }
+
+    .card .status {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .status.active {
+      background-color: #ef4444;
+    }
+
+    .status.scheduled {
+      background-color: #facc15;
+      color: #000000;
+    }
+
+    .status.resolved {
+      background-color: #22c55e;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #1f2937;
+      color: #94a3b8;
+      text-align: center;
+      padding: 20px;
+      margin-top: auto; /* يسمح للفوتر أن يبقى في الأسفل */
+    }
+
+    .footer p {
+      margin: 5px;
+      font-size: 14px;
+    }
+
+    .footer a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+    .no-results-message {
+  background-color: #f87171;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+} 
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">
+      <img src="images\Train.jpg" alt=""> <!-- Replace with actual path -->
+      <span>Riyadh Metro</span>
+    </div>
+    <button class="button">Add Incident</button>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="text">Filters</div>
+    <ul>
+      <li>Status
+      <ul>
+        <li><input type="checkbox" id="activeStatus">Active</li>
+        <li><input type="checkbox" id="resolvedStatus">Resolved</li>
+      </ul>
+      <li>Line</li>
+      <ul>
+        <li><input type="checkbox" id="Red">Red Line</li>
+        <li><input type="checkbox" id="Green">Green Line</li>
+        <li><input type="checkbox" id="Blue">Blue Line</li>
+        <li><input type="checkbox" id="Yellow">Yellow Line</li>
+        <li><input type="checkbox" id="Purple">Purple Line</li>
+      </ul>
+     </li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="text">Incident Management</div>
+    <div class="search-bar">
+      <input type="text"id="searchIncidents" placeholder="Search incidents...">
+    </div>
+    <div class="card-container">
+      <div class="card"  data-status="active" data-line="red">
+        <div class="text">Signal Failure</div>
+        <div class="description">A signal failure has been reported on Red Line, causing delays.</div>
+        <span class="status active">Active</span>
+      </div>
+      <div class="card"data-status="scheduled" data-line="green">
+        <div class="text">Maintenance Work</div>
+        <div class="description">Scheduled maintenance work on Red Line.</div>
+        <span class="status scheduled">Scheduled</span>
+      </div>
+      <div class="card" data-status="resolved" data-line="blue">
+        <div class="text">Resolved Issue</div>
+        <div class="description">The power outage on Green Line has been resolved.</div>
+        <span class="status resolved">Resolved</span>
+</div>
+      </div>
+    </div>
+    <div id="noResultsMessage" class="no-results-message" style="display: none;">
+      No incidents match your filters.
+      <script src="Script.js"></script>
+  </div>
+ 
+  <!-- Footer -->
+  <footer class="footer">
+      <p>Contact Us</p>
+      <p>123213, City, Riyadh</p>
+      <p>Email: <a href="mailto:support@ticketplanner.com">support@ticketplanner.com</a></p>
+      <p>Phone: +966 456 7890</p>
+  </footer>
+</body>
+</html>

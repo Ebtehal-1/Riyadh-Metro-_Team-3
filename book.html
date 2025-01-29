@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Ticket</title>
+  <link rel="stylesheet" href="css\sharedcss.css"> <!-- Shared Header/Footer -->
+  <link rel="stylesheet" href="css\ticketcss.css"> <!-- Page-Specific Styles -->
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <img src="images\Train.jpg" alt="Riyadh Metro Logo">
+      <span>Riyadh Metro</span>
+    </div>
+    <nav class="nav-links">
+      <a href="homepage.html">Home</a>
+      <a href="RechargeBalancc.html">Balance</a>
+      <a href="AccountPage.html">My Account</a>
+      <a href="#">Contact Us</a>
+    </nav>
+  </header>
+  <!-- Main Content -->
+  <div class="card">
+    <div class="text">Book Your Ticket</div>
+    <form action="http://localhost/RiyadhMetro/phpmailer/" method="POST">
+      <label for="email">Enter Your Email</label>
+      <input type="email" id="email" name="email" class="input" placeholder="Enter your email" required>
+    
+      <label for="starting-station">Select Starting Station</label>
+      <select id="starting-station" name="starting_station" class="dropdown">
+        <option value="Riyadh Central Station">Riyadh Central Station</option>
+        <option value="King Abdullah Financial District">King Abdullah Financial District</option>
+        <option value="Al Murooj Station">Al Murooj Station</option>
+        <option value="Alnma Bank Station">Alnma Bank Station</option>
+        <option value="Khalid Bin Alwaleed Road Station">Khalid Bin Alwaleed Road Station</option>
+        <option value="Qasr Al Hokm Station">Qasr Al Hokm Station</option>
+        <option value="Uthman Bin Affan Road Station">Uthman Bin Affan Road Station</option>
+        <option value="Al Hamra Station Station">Al Hamra Station</option>
+      </select>
+    
+      <label for="destination-station">Select Destination Station</label>
+      <select id="destination-station" name="destination_station" class="dropdown">
+        <option value="King Abdullah Financial District">King Abdullah Financial District</option>
+        <option value="Riyadh Central Station">Riyadh Central Station</option>
+        <option value="Al Murooj Station">Al Murooj Station</option>
+        <option value="Alnma Bank Station">Alnma Bank Station</option>
+        <option value="Khalid Bin Alwaleed Road Station">Khalid Bin Alwaleed Road Station</option>
+        <option value="Qasr Al Hokm Station">Qasr Al Hokm Station</option>
+        <option value="Uthman Bin Affan Road Station">Uthman Bin Affan Road Station</option>
+        <option value="Al Hamra Station Station">Al Hamra Station</option>
+      </select>
+    
+      <label for="travel-date">Travel Date</label>
+      <input type="date" id="travel-date" name="travel_date" class="input" required>
+    
+      <div class="radio-group">
+        <div>
+          <input type="radio" id="first-class" name="class" value="First Class" required>
+          <label for="first-class">First Class</label>
+        </div>
+        <div>
+          <input type="radio" id="economy" name="class" value="Economy" required>
+          <label for="economy">Economy</label>
+        </div>
+      </div>
+    
+      <div class="radio-group">
+        <div>
+          <input type="radio" id="visa" name="payment" value="Visa" required>
+          <label for="visa">Visa</label>
+        </div>
+        <div>
+          <input type="radio" id="paypal" name="payment" value="PayPal">
+          <label for="paypal">PayPal</label>
+        </div>
+        <div>
+          <input type="radio" id="balance" name="payment" value="Balance">
+          <label for="balance">Balance</label>
+        </div>
+      </div>
+    
+      <button type="submit" class="button">Book Now</button>
+    </form>
+    
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div>
+        <p>Contact Us</p>
+        <p>123213, City, Riyadh</p>
+        <p>Email: <a href="mailto:support@ticketplanner.com">support@ticketplanner.com</a></p>
+        <p>Phone: +966 456 7890</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
