@@ -1,0 +1,15 @@
+{
+    "name": "agx14/riyadh-metro",
+    "autoload": {
+        "psr-4": {
+            "Agx14\\RiyadhMetro\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Reham-1",
+            "email": "rxr1436@gmail.com"
+        }
+    ],
+    "require": {  "vlucas/phpdotenv": "^5.0"}
+}
