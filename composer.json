@@ -10,6 +10,5 @@
             "name": "Reham-1",
             "email": "rxr1436@gmail.com"
         }
-    ],
-    "require": {  "vlucas/phpdotenv": "^5.0"}
+    ]
 }
