@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riyadh Metro - Book Ticket</title>
+    <link rel="stylesheet" href="css\sharedcss.css">
+    <link rel="stylesheet" href="css\shortestpathcss.css">
+   
+</head>
+<body>
+    <!-- New Header -->
+    <header class="header">
+        <div class="logo">
+            <img src="images\Train.jpg" alt="">
+            <span>Riyadh Metro</span>
+        </div>
+        <nav>
+            <a href="homepage.html
+            ">Home</a>
+         <a href="book.html"> Book Ticket</a>
+        <a href="http://localhost/RiyadhMetro/account.php">My Account</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Find the Shortest Path</h1>
+        <label for="start">Start Station:</label>
+        <select id="start">
+            <option value="KAFD">KAFD</option>
+            <option value="SABIC">SABIC</option>
+            <option value="Othman">Othman</option>
+            <option value="Al Salam">Al Salam</option>
+            <option value="National Museum">National Museum</option>
+            <option value="King Khaled Airport">King Khaled Airport</option>
+            <option value="Olaya">Olaya</option>
+            <option value="King Abdulaziz Medical City">King Abdulaziz Medical City</option>
+            <option value="Diplomatic Quarter">Diplomatic Quarter</option>
+            <option value="University City">University City</option>
+        </select>
+        <br><br>
+        <label for="end">End Station:</label>
+        <select id="end">
+            <option value="KAFD">KAFD</option>
+            <option value="SABIC">SABIC</option>
+            <option value="Othman">Othman</option>
+            <option value="Al Salam">Al Salam</option>
+            <option value="National Museum">National Museum</option>
+            <option value="King Khaled Airport">King Khaled Airport</option>
+            <option value="Olaya">Olaya</option>
+            <option value="King Abdulaziz Medical City">King Abdulaziz Medical City</option>
+            <option value="Diplomatic Quarter">Diplomatic Quarter</option>
+            <option value="University City">University City</option>
+        </select>
+        <br><br>
+        <button onclick="findShortestPath()">Find Path</button>
+        <div id="result"></div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-content">
+          <div>
+            <strong>Contact Us</strong><br>
+            123213, City, Riyadh<br>
+            Email: <a href="mailto:support@ticketplanner.com">support@ticketplanner.com</a><br>
+            Phone: +966 456 7890
+          </div>
+          <div>
+            <strong>Transportation Lines</strong><br>
+            Line 1: City A - City B<br>
+            Line 2: City C - City D<br>
+            Line 3: City E - City F
+          </div>
+          <div>
+            <strong>Languages</strong><br>
+            English<br>
+            Arabic
+          </div>
+        </div>
+      </div>
+
+    <script>
+        const graph = {
+            "KAFD": { "SABIC": 5, "Othman": 10 },
+            "SABIC": { "KAFD": 5, "Al Salam": 8 },
+            "Othman": { "KAFD": 10, "National Museum": 7 },
+            "Al Salam": { "SABIC": 8, "National Museum": 6 },
+            "National Museum": { "Othman": 7, "Al Salam": 6, "King Khaled Airport": 9 },
+            "King Khaled Airport": { "National Museum": 9, "Olaya": 6 },
+            "Olaya": { "King Khaled Airport": 6, "King Abdulaziz Medical City": 8 },
+            "King Abdulaziz Medical City": { "Olaya": 8, "Diplomatic Quarter": 4 },
+            "Diplomatic Quarter": { "King Abdulaziz Medical City": 4, "University City": 7 },
+            "University City": { "Diplomatic Quarter": 7 }
+        };
+
+        function dijkstra(graph, start, end) {
+            const distances = {};
+            const visited = {};
+            const previous = {};
+            const nodes = Object.keys(graph);
+
+            for (const node of nodes) {
+                distances[node] = Infinity;
+                previous[node] = null;
+            }
+            distances[start] = 0;
+
+            while (nodes.length) {
+                nodes.sort((a, b) => distances[a] - distances[b]);
+                const closest = nodes.shift();
+                if (closest === end) break;
+
+                for (const neighbor in graph[closest]) {
+                    if (!visited[neighbor]) {
+                        const distance = distances[closest] + graph[closest][neighbor];
+                        if (distance < distances[neighbor]) {
+                            distances[neighbor] = distance;
+                            previous[neighbor] = closest;
+                        }
+                    }
+                }
+                visited[closest] = true;
+            }
+
+            const path = [];
+            let current = end;
+            let totalDistance = distances[end];
+            while (current) {
+                path.unshift(current);
+                current = previous[current];
+            }
+            return { path: path.length > 1 ? path : null, totalDistance };
+        }
+
+        function findShortestPath() {
+            const start = document.getElementById("start").value;
+            const end = document.getElementById("end").value;
+
+            const resultElement = document.getElementById("result");
+
+            if (start === end) {
+                resultElement.innerHTML = `
+                    <p>Error: The start and end stations are the same.</p>
+                    <p>Please select different stations for both start and end.</p>
+                `;
+                return;
+            }
+
+            const { path, totalDistance } = dijkstra(graph, start, end);
+
+            if (path) {
+                resultElement.innerHTML = `
+                    <p>Shortest Path: ${path.join(" -> ")}</p>
+                    <p>Total Distance: ${totalDistance} km</p>
+                `;
+            } else {
+                resultElement.textContent = "No path found.";
+            }
+        }
+    </script>
+</body>
+</html>

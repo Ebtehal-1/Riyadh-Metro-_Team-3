@@ -20,57 +20,56 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
       <span>Riyadh Metro</span>
     </div>
     <nav class="nav-links">
-      <a href="homepage.html">Home</a>
+      <a href="http://localhost/RiyadhMetro/homepage.php">Home</a>
       <a href="RechargeBalancc.html">Balance</a>
-      <a href="AccountPage.html">My Account</a>
+      <a href="http://localhost/RiyadhMetro/account.php">My Account</a>
       <a href="#">Contact Us</a>
     </nav>
   </header>
   <!-- Main Content -->
   <div class="card">
     <div class="text">Book Your Ticket</div>
-    <form action="http://localhost/RiyadhMetro/phpmailer/" method="POST">
+    <form id="bookingForm" method="POST">
       <label for="email">Enter Your Email</label>
       <input type="email" id="email" name="email" class="input" placeholder="Enter your email" required>
     
       <label for="starting-station">Select Starting Station</label>
-      <select id="starting-station" name="starting_station" class="dropdown">
-        <option value="Riyadh Central Station">Riyadh Central Station</option>
-        <option value="King Abdullah Financial District">King Abdullah Financial District</option>
-        <option value="Al Murooj Station">Al Murooj Station</option>
-        <option value="Alnma Bank Station">Alnma Bank Station</option>
-        <option value="Khalid Bin Alwaleed Road Station">Khalid Bin Alwaleed Road Station</option>
-        <option value="Qasr Al Hokm Station">Qasr Al Hokm Station</option>
-        <option value="Uthman Bin Affan Road Station">Uthman Bin Affan Road Station</option>
-        <option value="Al Hamra Station Station">Al Hamra Station</option>
+      <select id="starting-station" name="starting_station" class="dropdown" required onchange="calculateTicketPrice()">
+          <option value="KAFD">KAFD</option>
+          <option value="Othman">Othman</option>
+          <option value="SABIC">SABIC</option>
+          <option value="Al Salam">Al Salam</option>
+          <option value="National Museum">National Museum</option>
+          <option value="King Khaled Airport">King Khaled Airport</option>
+          <option value="Olaya">Olaya</option>
+          <option value="King Abdulaziz Medical City">King Abdulaziz Medical City</option>
+          <option value="Diplomatic Quarter">Diplomatic Quarter</option>
+          <option value="University City">University City</option>
       </select>
-    
+   
       <label for="destination-station">Select Destination Station</label>
-      <select id="destination-station" name="destination_station" class="dropdown">
-        <option value="King Abdullah Financial District">King Abdullah Financial District</option>
-        <option value="Riyadh Central Station">Riyadh Central Station</option>
-        <option value="Al Murooj Station">Al Murooj Station</option>
-        <option value="Alnma Bank Station">Alnma Bank Station</option>
-        <option value="Khalid Bin Alwaleed Road Station">Khalid Bin Alwaleed Road Station</option>
-        <option value="Qasr Al Hokm Station">Qasr Al Hokm Station</option>
-        <option value="Uthman Bin Affan Road Station">Uthman Bin Affan Road Station</option>
-        <option value="Al Hamra Station Station">Al Hamra Station</option>
+      <select id="destination-station" name="destination_station" class="dropdown" required onchange="calculateTicketPrice()">
+          <option value="KAFD">KAFD</option>
+          <option value="Othman">Othman</option>
+          <option value="SABIC">SABIC</option>
+          <option value="Al Salam">Al Salam</option>
+          <option value="National Museum">National Museum</option>
+          <option value="King Khaled Airport">King Khaled Airport</option>
+          <option value="Olaya">Olaya</option>
+          <option value="King Abdulaziz Medical City">King Abdulaziz Medical City</option>
+          <option value="Diplomatic Quarter">Diplomatic Quarter</option>
+          <option value="University City">University City</option>
       </select>
     
       <label for="travel-date">Travel Date</label>
       <input type="date" id="travel-date" name="travel_date" class="input" required>
-    
-      <div class="radio-group">
-        <div>
-          <input type="radio" id="first-class" name="class" value="First Class" required>
-          <label for="first-class">First Class</label>
-        </div>
-        <div>
-          <input type="radio" id="economy" name="class" value="Economy" required>
-          <label for="economy">Economy</label>
-        </div>
-      </div>
-    
+
+      <label for="travel-time">Select Travel Time</label>
+    <select id="travel-time" name="travel_time" class="input" required>
+     </select>
+
+  
+      <label for="payment">Select Payment Method</label>
       <div class="radio-group">
         <div>
           <input type="radio" id="visa" name="payment" value="Visa" required>
@@ -85,21 +84,237 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
           <label for="balance">Balance</label>
         </div>
       </div>
+       
+      <!-- Price Display Section -->
+      <div id="priceDisplay">
+        <div class="price-box">
+          <span id="priceLabel">Price: SAR 0</span>
+        </div>
+        <div class="distance-box">
+          <span id="distanceLabel">Total Distance: 0 km</span>
+        </div>
+      </div>
     
-      <button type="submit" class="button">Book Now</button>
+      <!-- Hidden Field for Price -->
+      <input type="hidden" id="total_price" name="total_price">
+    
+      <button type="submit" class="button" style="margin-top: 20px;">Book Now</button>
     </form>
     
+  </div>
+</div>
+      
+<div id="ticketContainer">
+  <!-- سيتم هنا عرض التذكرة بعد إرسال البيانات -->
+</div>
+
 
   <!-- Footer -->
-  <footer class="footer">
+  <div class="footer">
     <div class="footer-content">
       <div>
-        <p>Contact Us</p>
-        <p>123213, City, Riyadh</p>
-        <p>Email: <a href="mailto:support@ticketplanner.com">support@ticketplanner.com</a></p>
-        <p>Phone: +966 456 7890</p>
+        <strong>Contact Us</strong><br>
+        123213, City, Riyadh
+        Email: <a href="mailto:support@ticketplanner.com">support@ticketplanner.com</a></p>
+        Phone: +966 456 7890
       </div>
     </div>
-  </footer>
+    <strong>Transportation Lines</strong><br>
+    Line 1: City A - City B<br>
+    Line 2: City C - City D<br>
+    Line 3: City E - City F
+  </div>
+  <div>
+    <strong>Languages</strong><br>
+    English<br>
+    Arabic
+  </div>
+</div>
+</div>
+
+<script>
+  const graph = {
+      "KAFD": { "SABIC": 5, "Othman": 10 },
+      "SABIC": { "KAFD": 5, "Al Salam": 8 },
+      "Othman": { "KAFD": 10, "National Museum": 7 },
+      "Al Salam": { "SABIC": 8, "National Museum": 6 },
+      "National Museum": { "Othman": 7, "Al Salam": 6, "King Khaled Airport": 9 },
+      "King Khaled Airport": { "National Museum": 9, "Olaya": 6 },
+      "Olaya": { "King Khaled Airport": 6, "King Abdulaziz Medical City": 8 },
+      "King Abdulaziz Medical City": { "Olaya": 8, "Diplomatic Quarter": 4 },
+      "Diplomatic Quarter": { "King Abdulaziz Medical City": 4, "University City": 7 },
+      "University City": { "Diplomatic Quarter": 7 }
+  };
+
+  function dijkstra(graph, start, end) {
+      const distances = {};
+      const visited = {};
+      const previous = {};
+      const nodes = Object.keys(graph);
+
+      for (const node of nodes) {
+          distances[node] = Infinity;
+          previous[node] = null;
+      }
+      distances[start] = 0;
+
+      while (nodes.length) {
+          nodes.sort((a, b) => distances[a] - distances[b]);
+          const closest = nodes.shift();
+          if (closest === end) break;
+
+          for (const neighbor in graph[closest]) {
+              if (!visited[neighbor]) {
+                  const distance = distances[closest] + graph[closest][neighbor];
+                  if (distance < distances[neighbor]) {
+                      distances[neighbor] = distance;
+                      previous[neighbor] = closest;
+                  }
+              }
+          }
+          visited[closest] = true;
+      }
+
+      const path = [];
+      let current = end;
+      let totalDistance = distances[end];
+      while (current) {
+          path.unshift(current);
+          current = previous[current];
+      }
+      return { path: path.length > 1 ? path : null, totalDistance };
+  }
+
+  function calculateTicketPrice() {
+const start = document.getElementById("starting-station").value;
+const end = document.getElementById("destination-station").value;
+
+const resultElement = document.getElementById("priceDisplay");
+
+if (start === end) {
+  resultElement.innerHTML = `
+    <p style="color: red;">Error: The start and end stations are the same.</p>
+    <p>Please select different stations for both start and end.</p>
+  `;
+  return;
+}
+
+const { path, totalDistance } = dijkstra(graph, start, end);
+
+if (path) {
+  const pricePerKm = 0.75;
+  const totalPrice = totalDistance * pricePerKm;
+
+  // Display the price and total distance
+  document.getElementById("priceLabel").textContent = `Price: SAR ${totalPrice}`;
+  document.getElementById("distanceLabel").textContent = `Total Distance: ${totalDistance} km`;
+
+  // Set the total price in the hidden input field
+  document.getElementById("total_price").value = totalPrice;
+} else {
+  document.getElementById("priceLabel").textContent = "No path found.";
+  document.getElementById("distanceLabel").textContent = "";
+}
+}
+
+
+
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date();
+    const maxDate = new Date();
+    maxDate.setDate(today.getDate() + 2);
+
+    // تحويل التاريخ إلى صيغة YYYY-MM-DD
+    const todayString = today.toISOString().split('T')[0];
+    const maxDateString = maxDate.toISOString().split('T')[0];
+
+    // تعيين الحد الأدنى والحد الأقصى
+    const travelDateInput = document.getElementById('travel-date');
+    travelDateInput.setAttribute('min', todayString);
+    travelDateInput.setAttribute('max', maxDateString);
+  });
+</script>
+<script>
+  // دالة لإنشاء الخيارات المتاحة لوقت الرحلات
+function generateTimeOptions() {
+    var timeSelect = document.getElementById('travel-time');
+    var startTime = 8; // بداية الوقت 8 صباحًا
+    var endTime = 22; // نهاية الوقت 10 مساءً
+    var interval = 5; // الفاصل الزمني بين الرحلات 5 دقائق
+
+    // مسح الخيارات السابقة
+    timeSelect.innerHTML = '';
+
+    // حلقة لإنشاء الخيارات
+    for (var hour = startTime; hour <= endTime; hour++) {
+        for (var minute = 0; minute < 60; minute += interval) {
+            var time = formatTime(hour, minute);
+            var option = document.createElement('option');
+            option.value = time;
+            option.textContent = time;
+            timeSelect.appendChild(option);
+        }
+    }
+}
+
+// دالة لتنسيق الوقت بالصيغة المطلوبة
+function formatTime(hour, minute) {
+    var hourStr = hour < 10 ? '0' + hour : hour;
+    var minuteStr = minute < 10 ? '0' + minute : minute;
+    return hourStr + ':' + minuteStr;
+}
+
+// استدعاء دالة إنشاء الخيارات عند تحميل الصفحة
+window.onload = generateTimeOptions;
+</script>
+<script>
+document.getElementById('bookingForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form from submitting normally
+
+    var email = document.getElementById('email').value;
+
+    // Regex للتحقق من صحة البريد الإلكتروني
+    var emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|hotmail\.com|icloud\.com)$/;
+
+    if (!emailPattern.test(email)) {
+        alert("يرجى إدخال بريد إلكتروني صالح (مثل gmail.com أو hotmail.com أو icloud.com)");
+        return; // إيقاف إرسال النموذج إذا لم يكن البريد الإلكتروني صالحًا
+    }
+
+    var formData = new FormData(this);
+
+    // إرسال البيانات إلى قاعدة البيانات باستخدام AJAX
+    fetch('book_ticket.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert("تم حفظ التذكرة بنجاح!");
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
+    // إرسال البريد الإلكتروني باستخدام AJAX بشكل منفصل
+    fetch('http://localhost/RiyadhMetro/phpmailer/index.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log("تم إرسال البريد الإلكتروني بنجاح!");
+
+        // عرض التذكرة في الصفحة بعد إرسال البريد الإلكتروني بنجاح
+        document.getElementById('ticketContainer').innerHTML = data;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+
+</script>
 </body>
 </html>

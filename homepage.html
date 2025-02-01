@@ -1,17 +1,69 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
--->
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Riyadh Metro</title>
   <link rel="stylesheet" href="css\sharedcss.css"> <!-- Shared header and footer styles -->
-  <link rel="stylesheet" href="css\homecss.css"> <!-- Homepage-specific styles -->
+  <link rel="stylesheet" href="css\homecss_(0).css"> <!-- Homepage-specific styles -->
+  <style>
+    /* Keep the existing styles and add the scroll container for metro lines */
+    .schedule-container {
+      display: flex;
+      overflow-x: auto;
+      padding: 10px;
+      gap: 20px;
+      scroll-behavior: smooth; /* Allows smooth scrolling */
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      min-width: 300px;
+      flex-shrink: 0;
+      text-align: center;
+      border: 1px solid #e5e7eb;
+    }
+
+    /* Ensure cards look nice */
+    .card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #333;
+    }
+
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px 20px;
+      background-color: #f9f9f9;
+    }
+
+    .feature {
+      text-align: center;
+      max-width: 150px;
+    }
+
+    .feature img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+
+    .feature h4 {
+      font-size: 16px;
+      font-weight: bold;
+      color: #2563eb;
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
@@ -21,10 +73,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
       <span>Riyadh Metro</span>
     </div>
     <nav>
-      <a href="#">Schedule</a>
-      <a href="#">Maps</a>
-      <a href="AccountPage.html">My Account</a>
-      <a href="book.html">Book Ticket</a>
+      <a href="ShortestPath.html">Shortest Path</a>
+      <a href="login.html">Balance</a>
+      <a href="login.html">My Account</a>
+      <a href="login.html">Book Ticket</a>
     </nav>
   </header>
 
@@ -35,9 +87,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
     </div>
     <div class="hero-text">
       <h1>Experience Fast and Reliable Travel with Riyadh Metro!</h1>
-     <a href="book.html">
-      <button>Book Your Trip Now</button>
-    </a>
+      <a href="login.html">
+        <button>Book Your Trip Now</button>
+      </a>
     </div>
       
   </section>
@@ -48,47 +100,101 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
     <p>Riyadh Metro is your ultimate solution for fast, efficient, and safe travel across the city. It features multiple lines, connecting all major areas with state-of-the-art facilities.</p>
   </section>
 
-  <!-- Schedule Section -->
+  <!-- Schedule Section with Horizontal Scrolling -->
   <section class="schedule">
-    <div class="card">
-      <h3>Line 1: Blue Line</h3>
-      <p>Times: 6:00 AM - 11:00 PM</p>
-      <p>Stations: King Khalid Airport - Al Aziziyah</p>
-    </div>
-    <div class="card">
-      <h3>Line 2: Red Line</h3>
-      <p>Times: 5:30 AM - 12:00 AM</p>
-      <p>Stations: King Abdullah Financial District - Diplomatic Quarter</p>
-    </div>
-    <div class="card">
-      <h3>Line 3: Green Line</h3>
-      <p>Times: 6:00 AM - 10:30 PM</p>
-      <p>Stations: Al Malaz - Al Batha</p>
+    <div class="schedule-container">
+      <div class="card">
+        <h3>Line 1: Blue Line</h3>
+        <p>Route: Al Aridh to Ad Dar Al Baida</p>
+        <p>Stations: 25 stations, with interchanges at King Abdulaziz Road.)</p>
+      </div>
+      <div class="card">
+        <h3>Line 2: Red Line</h3>
+        <p>Route: King Saud University to King Fahd Sports City</p>
+        <p>Stations: 14 stations, with interchanges at STC and King Abdulaziz Road.</p>
+      </div>
+      <div class="card">
+        <h3>Line 3: Orange Line</h3>
+        <p>Route: Jeddah Road to Khashm Al An</p>
+        <p>Stations: 22 stations, including interchanges at Western Station and Al Malaz.</p>
+      </div>
+      <div class="card">
+        <h3>Line 4: Yellow Line</h3>
+        <p>Route: Airport T1-2 to KAFD</p>
+        <p>Stations: 9 stations, with interchanges at KAFD and Ar Rabi.</p>
+      </div>
+      <div class="card">
+        <h3>Line 5: Green Line</h3>
+        <p>Route: Ministry of Education to National Museum</p>
+        <p>Stations: 12 stations, including interchanges at Ministry of Education and National Museum.</p>
+      </div>
+      <div class="card">
+        <h3>Line 6: Purple Line</h3>
+        <p>Route: KAFD to An Naseem</p>
+        <p>Stations: 11 stations, with interchanges at KAFD and An Naseem.</p>
+      </div>
     </div>
   </section>
 
+  
+
+  <div class="map-container">
+    <h2>Riyadh Metro Map</h2>
+    <div class="map-box">
+      <img src="images\MapMetro.jpg" alt="Riyadh Metro Map">
+      <p class="map-caption">Explore the Riyadh Metro Network for easy and efficient travel.</p>
+    </div>
+  </div>
   <!-- Features Section -->
   <section class="features">
     <div class="feature">
-      <img src="images\Icon wifi.png" alt="Feature 1">
+      <img src="images\Icon wifi.png" alt="Free Wi-Fi">
       <h4>Free Wi-Fi</h4>
     </div>
     <div class="feature">
-      <img src="images\Icon shield.png" alt="Feature 2">
-      <h4>High Security Standards</h4>
+      <img src="images\Icon shield.png" alt="High Security Standards">
+      <h4>High Security</h4>
     </div>
     <div class="feature">
-      <img src="images\Icon credit card.png" alt="Feature 3">
-      <h4>Easy Digital Payments</h4>
+      <img src="images\Icon credit card.png" alt="Easy Digital Payments">
+      <h4>Digital Payments</h4>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <p>© 2023 Riyadh Metro. All Rights Reserved.</p>
-    <p>
-      <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Sitemap</a>
-    </p>
-  </footer>
+  <div class="footer">
+    <div class="footer-content">
+      <div>
+        <strong>Contact Us</strong><br>
+        123213, City, Riyadh<br>
+        Email: <a href="mailto:support@ticketplanner.com">support@ticketplanner.com</a><br>
+        Phone: +966 456 7890
+      </div>
+      <div>
+        <strong>Transportation Lines</strong><br>
+        Line 1: City A - City B<br>
+        Line 2: City C - City D<br>
+        Line 3: City E - City F
+      </div>
+      <div>
+        <strong>Languages</strong><br>
+        English<br>
+        Arabic
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript for horizontal scroll control (swiping effect)
+    const scheduleContainer = document.querySelector('.schedule-container');
+    scheduleContainer.addEventListener('scroll', () => {
+      if (scheduleContainer.scrollLeft + scheduleContainer.offsetWidth >= scheduleContainer.scrollWidth) {
+        scheduleContainer.scrollLeft = 0; // Scroll to the start if the end is reached
+      }
+    });
+  </script>
+
 </body>
 </html>
+
+

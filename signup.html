@@ -1,0 +1,70 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="css\signupcss.css"> <!-- Sign-Up Specific Styles -->
+  
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">
+      <img src="images\Train.jpg" alt="Logo">
+      <span>Riyadh Metro</span>
+    </div>
+    <nav class="nav-links">
+      <a href="homepage.html">Home</a>
+      <a href="#">Contact Us</a>
+    </nav>
+  </div>
+
+  <!-- Main Section -->
+<div class="main">
+  <div class="card">
+    <h2>Sign Up for an Account</h2>
+    <!-- Link form to register.php -->
+    <form id="signup-form" action="http://localhost/RiyadhMetro/register.php
+    " method="POST">
+      <div class="form-group">
+        <label for="username">User Name</label>
+        <input type="text" name="username" id="username" class="input" placeholder="Enter your username" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" name="email" id="email" class="input" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" class="input" placeholder="Enter your password" required>
+      </div>
+      <button type="submit" class="button">Sign Up</button>
+    </form>
+  </div>
+</div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="contact">
+        <strong>Contact Us</strong><br>
+        123213, City, Riyadh<br>
+        Email: <a href="mailto:support@ticketplanner.com">support@ticketplanner.com</a><br>
+        Phone: +966 456 7890
+      </div>
+      <div class="lines">
+        <strong>Transportation Lines</strong><br>
+        Line 1: City A - City B<br>
+        Line 2: City C - City D<br>
+        Line 3: City E - City F
+      </div>
+      <div class="languages">
+        <strong>Languages</strong><br>
+        English<br>
+        Arabic
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

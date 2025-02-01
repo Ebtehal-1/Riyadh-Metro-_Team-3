@@ -12,8 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $startingStation = $_POST['starting_station']; // Get starting station
     $destinationStation = $_POST['destination_station']; // Get destination station
     $travelDate = $_POST['travel_date']; // Get travel date
-    $class = $_POST['class']; // Get class
+    $travel_time =$_POST['travel_time'];
     $paymentMethod = $_POST['payment']; // Get payment method
+    $total_price = $_POST['total_price'];
 
     // Create an instance; passing `true` enables exceptions
     $mail = new PHPMailer(true);
@@ -67,8 +68,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $travelDate
             </div>
             <div style='margin-bottom: 10px;'>
-                <span style='display: block; font-weight: bold; color: #333;'>Class:</span>
-                $class
+                <span style='display: block; font-weight: bold; color: #333;'>Travel Time:</span>
+                $travel_time
+            </div>
+            <div style='margin-bottom: 10px;'>
+                <span style='display: block; font-weight: bold; color: #333;'>Price: SAR</span>
+                $total_price 
             </div>
             <div style='margin-bottom: 10px;'>
                 <span style='display: block; font-weight: bold; color: #333;'>Payment Method:</span>
@@ -102,8 +107,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $travelDate
             </div>
             <div style='margin-bottom: 10px;'>
-                <span style='display: block; font-weight: bold; color: #333;'>Class:</span>
-                $class
+                <span style='display: block; font-weight: bold; color: #333;'>Travel Time:</span>
+                $travel_time
+            </div>
+                     <div style='margin-bottom: 10px;'>
+                <span style='display: block; font-weight: bold; color: #333;'>Price: SAR</span>
+                $total_price 
             </div>
             <div style='margin-bottom: 10px;'>
                 <span style='display: block; font-weight: bold; color: #333;'>Payment Method:</span>

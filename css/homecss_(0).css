@@ -1,0 +1,179 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : Jan 17, 2025, 10:44:40 PM
+    Author     : user
+*/
+/* General Reset */
+/* General Reset */
+/* General Reset */
+/* Header */
+/* General Reset */
+/* General Reset */
+/* Hero Section */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 500px;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+  color: #ffffff; /* White text for contrast */
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 24px;
+  background-color: #2563eb; /* Blue button */
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hero button:hover {
+  background-color: #1d4ed8;
+}
+.map-container {
+  text-align: center;
+  padding: 20px;
+  background-color: #ffffff; /* Keep the background white */
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 30px auto;
+  max-width: 850px;
+}
+
+.map-container h2 {
+  color: #0A1931; /* Dark Blue */
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.map-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  border: 2px solid #efefef; /* Keep the light border */
+  border-radius: 8px;
+  background-color: #ffffff; /* Keep it white */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.map-box img {
+  width: 85%;
+  max-width: 700px;
+  height: auto;
+  border-radius: 8px;
+  border: 3px solid #efefef; /* Light grey border */
+  transition: transform 0.3s ease-in-out;
+}
+
+.map-box img:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+.map-caption {
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
+  font-style: italic;
+}
+.schedule-container {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px;
+  gap: 20px;
+  scroll-behavior: smooth; /* Allows smooth scrolling */
+  scrollbar-width: thin; /* Optional, for browser consistency */
+}
+
+/* Keep the existing styles and add the scroll container for metro lines */
+.schedule-container {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px;
+  gap: 20px;
+  scroll-behavior: smooth; /* Allows smooth scrolling */
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  min-width: 300px;
+  flex-shrink: 0;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+}
+
+/* Ensure cards look nice */
+.card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.card p {
+  font-size: 14px;
+  color: #333;
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
+.feature {
+  text-align: center;
+  max-width: 150px;
+}
+
+.feature img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.feature h4 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #2563eb;
+}
